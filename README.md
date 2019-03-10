@@ -198,6 +198,8 @@ Messages sent to this node is simply passed through. One cannot tell Google Smar
 
   `Port`: TCP port of your choosing for incoming connections from Google. Must match what you entered in the *Google on Actions* project.
 
+  `Enable SSL`: Enables SSL on the build-in Web Server. When enabled please be sure to add public and private key. Since *Google on Actions* needs SSL-Support a reverse proxy is needed whenever SSL is disabled in node.
+
   `Public Key`: Full path to public key file, e.g. `fullchain.pem` from Let's Encrypt.
 
   `Private Key`: Full path to private key file, e.g. `privkey.pem` from Let's Encrypt.
