@@ -79,11 +79,16 @@
     </div>
 
     <div class="form-row">
+        <label style="width:auto" for="node-config-input-enablessl"><i class="fa fa-arrow-right"></i> <span data-i18n="googlesmarthome.label.enablessl"></span></label>
+        <input type="checkbox" checked id="node-config-input-enablessl" value="ssl" style="display:inline-block; width:auto; vertical-align:top;">
+    </div>
+
+    <div class="form-row" id="node-publickey">
         <label for="node-config-input-publickey"><i class="fa fa-folder"></i> <span data-i18n="googlesmarthome.label.publickey"></span></label>
         <input type="text" id="node-config-input-publickey">
     </div>
 
-    <div class="form-row">
+    <div class="form-row" id="node-privatekey">
         <label for="node-config-input-privatekey"><i class="fa fa-folder"></i> <span data-i18n="googlesmarthome.label.privatekey"></span></label>
         <input type="text" id="node-config-input-privatekey">
     </div>
@@ -103,6 +108,7 @@
     <br>
     <b>Built-in Web Server Settings</b><br>
     <code>Port</code>: TCP port of your choosing for incoming connections from Google. Must match what you entered in the <b>Google on Actions</b> project.<br>
+    <code>Enable SSL</code>: Enable use of SSL for Web Server. Please keep in mind that SSL is mandatory. Disabling SSL needs a reverse proxy with SSL enabled.<br>
     <code>Public Key</code>: Full path to public key file, e.g. `fullchain.pem` from Let's Encrypt.<br>
     <code>Private Key</code>: Full path to private key file, e.g. `privkey.pem` from Let's Encrypt.<br>
 </script>
@@ -125,6 +131,9 @@
             },
             port: {
                 value:3001, required:true, validate:RED.validators.number(true)
+            },
+            enablessl: {
+                value: true
             },
             publickey: {
                 value:"", required:true
@@ -152,6 +161,17 @@
         },
         labelStyle: function() {
             return this.name ? "node_label_italic" : "";
+        },
+        oneditprepare: function() {
+            $("#node-config-input-enablessl").on("change",function() {
+                if (this.checked) {
+                    $("#node-publickey").show();
+                    $("#node-privatekey").show();
+                } else {
+                    $("#node-publickey").hide();
+                    $("#node-privatekey").hide();
+                }
+            });
         }
     });
 </script>

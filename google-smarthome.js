@@ -42,6 +42,7 @@ module.exports = function(RED) {
 
         this.app = new GoogleSmartHome(config.username, config.password, 
             parseInt(config.port), 
+            config.enablessl,
             config.publickey, 
             config.privatekey,
             config.jwtkey,
