@@ -1,18 +1,19 @@
 {
     "googlesmarthome": {
-        "label": {
-            "name": "Name",
-            "username": "Username",
-            "password": "Password",
-            "port": "Port",
-            "clientid": "Client ID",
-            "clientsecret": "Client Secret",
-            "publickey": "Public Key",
-            "privatekey": "Private Key",
-            "jwtkey": "Jwt Key",
-            "reportinterval": "Report Interval (m)",
-            "enabledebug": "Enable Node Debug"
-        },
+      "label": {
+        "name": "Name",
+        "username": "Username",
+        "password": "Password",
+        "port": "Port",
+        "clientid": "Client ID",
+        "clientsecret": "Client Secret",
+        "publickey": "Public Key",
+        "privatekey": "Private Key",
+        "jwtkey": "Jwt Key",
+        "reportinterval": "Report Interval (m)",
+        "enabledebug": "Enable Node Debug",
+        "enablessl": "Enable SSL"
+      },
         "placeholder": {
             "name": "Name",
             "clientid": "OAuth Client ID",
